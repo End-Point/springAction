@@ -1,4 +1,4 @@
-package com.liufei.automation.assemble;
+package com.liufei.automation.assemble.source;
 
 /**
  *
@@ -15,5 +15,5 @@ public interface CompactDisc {
     /**
      * 播放方法
      */
-    void play();
+    String play();
 }

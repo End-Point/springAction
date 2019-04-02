@@ -1,6 +1,6 @@
 package com.liufei.automation.assemble;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.liufei.automation.assemble.source.CompactDisc;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component
-public class SgtPeppersPlay implements CompactDisc{
+public class SgtPeppersPlay implements CompactDisc {
 
     public SgtPeppersPlay(){
         System.out.println("我使用播放机播放了喜羊羊，该类地址："+ SgtPeppersPlay.class);
@@ -20,7 +20,8 @@ public class SgtPeppersPlay implements CompactDisc{
 
 
     @Override
-    public void play() {
+    public String play() {
         System.out.println("我使用播放机播放了喜羊羊，该类地址："+ SgtPeppersPlay.class);
+        return "该类地址："+ SgtPeppersPlay.class;
     }
 }
