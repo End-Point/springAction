@@ -1,6 +1,6 @@
-package com.liufei.automation.assemble;
+package com.liufei.assemble.automation;
 
-import com.liufei.automation.assemble.source.CompactDisc;
+import com.liufei.assemble.automation.source.CompactDisc;
 import org.springframework.stereotype.Component;
 
 /**

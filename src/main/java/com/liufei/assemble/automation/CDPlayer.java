@@ -1,7 +1,7 @@
-package com.liufei.automation.assemble;
+package com.liufei.assemble.automation;
 
-import com.liufei.automation.assemble.source.CompactDisc;
-import com.liufei.automation.assemble.source.MediaPlayer;
+import com.liufei.assemble.automation.source.CompactDisc;
+import com.liufei.assemble.automation.source.MediaPlayer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

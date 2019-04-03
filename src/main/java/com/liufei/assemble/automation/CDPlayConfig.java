@@ -1,4 +1,4 @@
-package com.liufei.automation.assemble;
+package com.liufei.assemble.automation;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +16,6 @@ import org.springframework.context.annotation.Configuration;
     (3) @ComponentScan(basePackage={”com.xxx”,”com.xxx2”}):指定多个基础扫描包，该属性和value属性功能相同。
     (4)@ComponentScan(basePackageClasses ={xxxClass.class,xxxClass2.class}):以basePackageClasses中的类所在的包为基础扫描包，并扫描其下的子孙包
  */
-@ComponentScan(value = "com.liufei.automation")
+@ComponentScan(value = "com.liufei.assemble.automation")
 public class CDPlayConfig {
 }

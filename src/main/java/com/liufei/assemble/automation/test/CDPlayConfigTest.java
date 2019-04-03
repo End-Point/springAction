@@ -1,7 +1,7 @@
-package com.liufei.automation.assemble.test;
+package com.liufei.assemble.automation.test;
 
-import com.liufei.automation.assemble.CDPlayConfig;
-import com.liufei.automation.assemble.source.CompactDisc;
+import com.liufei.assemble.automation.CDPlayConfig;
+import com.liufei.assemble.automation.source.CompactDisc;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,8 @@
-package com.liufei.automation.assemble.source;
+package com.liufei.assemble.automation.source;
 
 /**
  *
- * spring自动装备bean：
+ * spring自动装配bean：
  * 思路：(1)先创建一个播放机(CompactDisc)接口；
  *       (2)再创建一个播放机接口的实现类(SgtPeppersPlay)添加@Component注解，表示这是组件类；
  *       (3)最后创建一个配置类(CDPlayConfig)，使用@Configuration注解表示这是配置类，启动时加载。使用@ComponentScan注解，扫描带有@Component注解的类，
