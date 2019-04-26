@@ -1,6 +1,8 @@
 package com.liufei.assemble.manpower.javaconfig.test;
 
 import com.liufei.assemble.manpower.javaconfig.CDPlayConfig;
+import com.liufei.assemble.manpower.javaconfig.CDPlayer;
+import com.liufei.assemble.manpower.javaconfig.CDPlayer2;
 import com.liufei.assemble.manpower.javaconfig.source.CompactDisc;
 import com.liufei.assemble.manpower.javaconfig.source.MediaPlayer;
 import org.junit.Test;
@@ -8,6 +10,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import javax.annotation.Resource;
 
 /**
  * 验证CDPlayer类的@autowired注解
@@ -23,10 +27,21 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 //加载特定的配置文件
 @ContextConfiguration(classes = CDPlayConfig.class)
 public class CDPlayerConfigTest {
-    @Autowired
+    /*  这里对应了 com\liufei\assemble\manpower\javaconfig\CDPlayConfig类的cdPlayer()和cdPlayer2()两个方法
+      当spring容器中有多个同类型的bean时，需要使用@Resource(name = "anotherCDPlayer")注解，指定bean的id命进行注入，否则
+    * spring不知道在多个同类型的bean中选择哪个bean进行注入，所以会报错。
+    * */
+//    @Autowired
+    @Resource(name = "anotherCDPlayer")
     private MediaPlayer player;
     @Autowired
     private CompactDisc cd;
+
+
+    @Autowired
+    private CDPlayer cdPlayer1;
+    @Autowired
+    private CDPlayer2 cdPlayer2;
 
 
     @Test

@@ -8,9 +8,11 @@ import org.springframework.stereotype.Component;
 /**
  *
  */
-@Component
+//@Component  //如果在带有@Configuration类中使用@bean注解创建了该对象，则这里可以不写@Component 注解
 public class CDPlayer implements MediaPlayer {
     private CompactDisc cd;
+
+
 
 
     public CDPlayer(){

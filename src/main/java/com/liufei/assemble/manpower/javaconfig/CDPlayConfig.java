@@ -1,16 +1,21 @@
 package com.liufei.assemble.manpower.javaconfig;
 
 import com.liufei.assemble.manpower.javaconfig.source.CompactDisc;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import com.liufei.assemble.manpower.javaconfig.source.MediaPlayer;
+import org.springframework.beans.factory.annotation.Autowire;
+import org.springframework.context.annotation.*;
 
 /**
  *
  */
 //表示该类为配置类，相当于XML文件
-@Configuration
+    @Configuration
+    //@Import() //引入其他@Configuration配置文件 格式为@Import(类名.class) 或者@Import({类名.class,类名.class})
+//@ImportResource("classpath:配置文件.xml") //用来引入xml类型的配置文件
 public class CDPlayConfig {
+
+    private CDPlayer cdPlayer1;
+    private CDPlayer2 cdPlayer2;
 
     /**
      * ---@Bean注解：
@@ -40,17 +45,27 @@ public class CDPlayConfig {
 
     /** -- @Bean注解使用方法之二：通过调用上方的getSgtPeppersPlay()方法创建CompactDisc对象，将对象注入进来。
      * 如果@Bean是单例模式，则cdPlayer()和anotherCDPlayer()两个方法中创建CDPlayer对象传入的CompactDisc类型应该是同一个对象。
+     *
+     *
+     *  <br>
+     *     --@Bean(autowire = Autowire.BY_NAME,value = "cdPlayer")参数解释：
+     *      因为spring默认是按照类型创建bean，这样同类型的bean只能有一个，在创建多个同类型bean的情况下回报错，
+     *      如果想创建多个同类型的bean，可以指定按照bean的名字创建，设置@Bean注解中的autowire = Autowire.BY_NAME ，设置bean的名字value = "cdPlayer"；
+     *      这样可以创建多个同类型的bean，在spring注入时，会根据名字进行查找bean，并注入。
      * @return
      */
-    @Bean
+    @Bean(autowire = Autowire.BY_NAME,value = "cdPlayer")
     public CDPlayer cdPlayer(){
         //在上方通过手动创建一个CompactDisc的Bean，并调用该方法，将CompactDisc对象注入进来。这是不常用的方法
-        return new CDPlayer(getSgtPeppersPlay());
+        cdPlayer1 = new CDPlayer(getSgtPeppersPlay());
+        return cdPlayer1;
     }
 
-    @Bean
-    public CDPlayer anotherCDPlayer(){
-        return new CDPlayer(getSgtPeppersPlay());
+     //TODO 这里放开会报错，因为spring默认按照by_type进行注入，这里改为按照by_name注入就可以了
+    @Bean(autowire = Autowire.BY_NAME,value = "anotherCDPlayer")
+    public CDPlayer2 anotherCDPlayer(){
+        cdPlayer2 =new CDPlayer2(getSgtPeppersPlay());
+        return cdPlayer2;
     }
 
 
