@@ -2,9 +2,11 @@ package com.liufei.assemble.manpower.javaconfig;
 
 import com.liufei.assemble.manpower.javaconfig.source.CompactDisc;
 import com.liufei.assemble.manpower.javaconfig.source.MediaPlayer;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
+@Qualifier("aaa")
 public class CDPlayer2 implements MediaPlayer {
 
 

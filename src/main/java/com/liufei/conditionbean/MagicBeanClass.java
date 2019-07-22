@@ -1,8 +1,10 @@
 package com.liufei.conditionbean;
 
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 /**
  * 用于测试条件配置Bean的类
@@ -17,6 +19,7 @@ public class MagicBeanClass {
      */
     @Bean
     @Conditional({MagicExistsCondition.class})
+//    @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) //指定注解的作用域范围。
     public MagicBean magicBean(){
         return new MagicBean();
     }

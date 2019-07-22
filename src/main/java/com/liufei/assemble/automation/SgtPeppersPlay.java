@@ -1,6 +1,8 @@
 package com.liufei.assemble.automation;
 
 import com.liufei.assemble.automation.source.CompactDisc;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class SgtPeppersPlay implements CompactDisc {
 
     public SgtPeppersPlay(){
